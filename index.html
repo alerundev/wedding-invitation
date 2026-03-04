@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>우리 결혼합니다 💍</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600&family=Great+Vibes&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #fdf8f4;
+      font-family: 'Noto Serif KR', serif;
+      color: #4a3728;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 480px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(160deg, #f9ede3 0%, #fce8d8 60%, #f5d5c0 100%);
+      text-align: center;
+      padding: 60px 24px 50px;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '🌸';
+      font-size: 80px;
+      display: block;
+      margin-bottom: 16px;
+      animation: sway 3s ease-in-out infinite;
+    }
+
+    @keyframes sway {
+      0%, 100% { transform: rotate(-5deg); }
+      50% { transform: rotate(5deg); }
+    }
+
+    .hero-script {
+      font-family: 'Great Vibes', cursive;
+      font-size: 42px;
+      color: #c47c5a;
+      margin-bottom: 12px;
+    }
+
+    .hero-names {
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: 6px;
+      color: #4a3728;
+      margin-bottom: 8px;
+    }
+
+    .hero-amp {
+      font-family: 'Great Vibes', cursive;
+      font-size: 32px;
+      color: #c47c5a;
+      display: block;
+      margin: 4px 0;
+    }
+
+    .hero-date {
+      margin-top: 20px;
+      font-size: 14px;
+      letter-spacing: 3px;
+      color: #8a6a5a;
+    }
+
+    /* Divider */
+    .divider {
+      text-align: center;
+      padding: 28px 24px;
+      background: #fff;
+    }
+
+    .divider-line {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #c47c5a;
+      font-size: 18px;
+    }
+
+    .divider-line::before,
+    .divider-line::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #c47c5a, transparent);
+    }
+
+    /* Invitation text */
+    .message {
+      background: #fff;
+      padding: 0 32px 36px;
+      text-align: center;
+      line-height: 2;
+      font-size: 14px;
+      color: #6a4f40;
+    }
+
+    /* Info cards */
+    .info-section {
+      background: #fdf8f4;
+      padding: 32px 24px;
+    }
+
+    .info-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 12px rgba(196,124,90,0.08);
+      text-align: center;
+    }
+
+    .info-card .icon {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .info-card h3 {
+      font-size: 13px;
+      letter-spacing: 3px;
+      color: #c47c5a;
+      margin-bottom: 8px;
+      font-weight: 400;
+    }
+
+    .info-card p {
+      font-size: 15px;
+      color: #4a3728;
+      line-height: 1.8;
+    }
+
+    /* Map placeholder */
+    .map-placeholder {
+      background: linear-gradient(135deg, #f0e6de, #e8d5c8);
+      border-radius: 12px;
+      height: 160px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 12px;
+      color: #8a6a5a;
+      font-size: 13px;
+      gap: 6px;
+    }
+
+    /* RSVP */
+    .rsvp {
+      background: #fff;
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    .rsvp h2 {
+      font-size: 13px;
+      letter-spacing: 3px;
+      color: #c47c5a;
+      margin-bottom: 20px;
+      font-weight: 400;
+    }
+
+    .rsvp-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #c47c5a, #d4956f);
+      color: #fff;
+      text-decoration: none;
+      padding: 14px 40px;
+      border-radius: 50px;
+      font-family: 'Noto Serif KR', serif;
+      font-size: 14px;
+      letter-spacing: 2px;
+      box-shadow: 0 4px 16px rgba(196,124,90,0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .rsvp-btn:active {
+      transform: scale(0.97);
+      box-shadow: 0 2px 8px rgba(196,124,90,0.25);
+    }
+
+    /* Gallery */
+    .gallery {
+      background: #fdf8f4;
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    .gallery h2 {
+      font-size: 13px;
+      letter-spacing: 3px;
+      color: #c47c5a;
+      margin-bottom: 16px;
+      font-weight: 400;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .gallery-item {
+      aspect-ratio: 1;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #f5e6dc, #e8d0c0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+    }
+
+    /* Account */
+    .account {
+      background: #fff;
+      padding: 32px 24px;
+    }
+
+    .account h2 {
+      font-size: 13px;
+      letter-spacing: 3px;
+      color: #c47c5a;
+      margin-bottom: 16px;
+      font-weight: 400;
+      text-align: center;
+    }
+
+    .account-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      background: #fdf8f4;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    .account-item .label {
+      color: #8a6a5a;
+      font-size: 12px;
+    }
+
+    .account-item .number {
+      color: #4a3728;
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    .copy-btn {
+      background: #c47c5a;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 11px;
+      cursor: pointer;
+      font-family: 'Noto Serif KR', serif;
+    }
+
+    /* Footer */
+    .footer {
+      background: linear-gradient(160deg, #f5e6dc, #f0d8c8);
+      text-align: center;
+      padding: 40px 24px 60px;
+    }
+
+    .footer-script {
+      font-family: 'Great Vibes', cursive;
+      font-size: 36px;
+      color: #c47c5a;
+      margin-bottom: 12px;
+    }
+
+    .footer p {
+      font-size: 12px;
+      color: #8a6a5a;
+      line-height: 2;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-script">Wedding Invitation</div>
+    <div class="hero-names">
+      김민준
+      <span class="hero-amp">&amp;</span>
+      이서연
+    </div>
+    <div class="hero-date">2026 · 06 · 06 · SAT · PM 1:00</div>
+  </section>
+
+  <!-- Divider -->
+  <div class="divider">
+    <div class="divider-line">🌿</div>
+  </div>
+
+  <!-- Message -->
+  <section class="message">
+    <p>
+      서로가 서로의 곁에 있어<br />
+      더 빛나는 두 사람이<br />
+      이제 하나의 이름으로<br />
+      새로운 길을 걷고자 합니다.<br /><br />
+      소중한 분들을 모시고<br />
+      그 첫걸음을 함께 나누고 싶습니다.<br />
+      부디 오셔서 축복해 주세요.
+    </p>
+  </section>
+
+  <!-- Info -->
+  <section class="info-section">
+    <div class="info-card">
+      <div class="icon">📅</div>
+      <h3>D A T E</h3>
+      <p>2026년 6월 6일 토요일<br />오후 1시</p>
+    </div>
+
+    <div class="info-card">
+      <div class="icon">📍</div>
+      <h3>V E N U E</h3>
+      <p>그랜드 웨딩홀 2층 로즈홀<br />서울 강남구 테헤란로 123</p>
+      <div class="map-placeholder">
+        <span>🗺️</span>
+        <span>지도 보기</span>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="icon">🚗</div>
+      <h3>P A R K I N G</h3>
+      <p>건물 지하 2층 ~ 지하 4층<br />3시간 무료 주차</p>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="gallery">
+    <h2>P H O T O S</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item">💑</div>
+      <div class="gallery-item">🌸</div>
+      <div class="gallery-item">💐</div>
+      <div class="gallery-item">🥂</div>
+      <div class="gallery-item">🌿</div>
+      <div class="gallery-item">✨</div>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section class="rsvp">
+    <h2>R S V P</h2>
+    <p style="font-size:13px;color:#8a6a5a;margin-bottom:20px;line-height:1.8;">
+      참석 여부를 5월 23일까지<br />알려주시면 감사하겠습니다.
+    </p>
+    <a href="tel:010-1234-5678" class="rsvp-btn">참석 의사 전달하기</a>
+  </section>
+
+  <!-- Account -->
+  <section class="account">
+    <h2>마음 전하기</h2>
+    <div class="account-item">
+      <div>
+        <div class="label">신랑 김민준</div>
+        <div class="number">카카오뱅크 3333-00-1234567</div>
+      </div>
+      <button class="copy-btn" onclick="navigator.clipboard.writeText('333300012345​67').then(()=>this.textContent='복사됨✓')">복사</button>
+    </div>
+    <div class="account-item">
+      <div>
+        <div class="label">신부 이서연</div>
+        <div class="number">신한은행 110-123-456789</div>
+      </div>
+      <button class="copy-btn" onclick="navigator.clipboard.writeText('110123456789').then(()=>this.textContent='복사됨✓')">복사</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <section class="footer">
+    <div class="footer-script">Thank you</div>
+    <p>
+      신랑 김민준 · 신부 이서연<br />
+      오셔서 축복해 주셔서 감사합니다
+    </p>
+  </section>
+
+</div>
+</body>
+</html>
